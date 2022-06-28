@@ -1,35 +1,38 @@
 <template>
-  <div id="app">
-    <menubar></menubar>
-    <div class="container">
-      <router-view :key="key"></router-view>
-    </div>
-  </div>
+	<div>
+		<h3>Things to do</h3>
+		<h5><span style="color:red; float:right;">*Double click on label to edit</span></h5>
+		<ul id="incomplete-tasks">
+			<todos v-for="todo in todos" :todo="todo" v-if="!todo.done"></todos>
+		</ul>
+
+		<h3>Completed</h3>
+
+		<ul id="completed-tasks">
+			<completed v-for="todo in todos" :todo="todo" v-if="todo.done">></completed>
+		</ul>
+	</div>
 </template>
 
-<script>
-  import MenuBar from './components/menubarComp'
+<script type="text/javascript">
+	import Todos from './Todos'
+	import CompletedTodo from './CompletedTodo'
 
-  export default {
-    name: 'app',
-    components: {
-      'menubar':MenuBar
-    },
-    computed: {
-      todos () {
-        return this.$store.state.todos
-      }
-    },
-    data() {
-        return {
-            name: this.$route.name
-        }
-    }
-  }
+	export default{
+		name : 'testComp',
+		components: {
+			'todos' : Todos,
+			'completed' : CompletedTodo
+		},
+		computed: {
+			todos () {
+				return this.$store.state.todos
+			}
+		}
+	}
 </script>
 
-<style>
-  /* Basic Style */
+<style scoped>
   body {
     background: #fff;
     color: #333;
@@ -141,30 +144,5 @@
   #completed-tasks label {
     text-decoration: line-through;
     color: #888;
-  }
-
-  /* Edit Task */
-  /*ul li input[type=text] {
-    display:none;
-  }
-
-  ul li.editMode input[type=text] {
-    display:block;
-  }
-
-  ul li.editMode label {
-    display:none;
-  }*/
-.container{
-  width:50%;
-}
-
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 0px;
   }
 </style>
