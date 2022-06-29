@@ -9,10 +9,9 @@ import homePage from './components/homePage.vue';
 Vue.use(VueRouter);
 
 const Routes=[
-  {path:'/test', component:testComp},
+  {path:'/about', component:testComp},
   {path:'/', component:homePage},
   {path:'/addTodo', component:addTodoPage}
-
 ]
 
 const router=new VueRouter({

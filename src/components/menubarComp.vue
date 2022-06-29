@@ -3,7 +3,7 @@
 		<ul class="menu_ul">
 			<li><router-link to="/">Home</router-link></li>
 			<li><router-link to="/addTodo">Add Todo</router-link></li>
-			<li><router-link to="/test">About</router-link></li>
+			<li><router-link to="/about">About</router-link></li>
 		</ul>
 	</div>
 </template>

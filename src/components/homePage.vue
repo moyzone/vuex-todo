@@ -9,7 +9,7 @@
 		<h3>Completed</h3>
 
 		<ul id="completed-tasks">
-			<completed v-for="todo in todos" :todo="todo" v-if="todo.done">></completed>
+			<completed v-for="todo in todos" :todo="todo" v-if="todo.done">></completed> //v-if should not be with v-for, key is mandatory, edit routing to different page, do state change based on id, after adding do redirect
 		</ul>
 	</div>
 </template>

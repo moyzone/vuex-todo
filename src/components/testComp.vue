@@ -1,7 +1,7 @@
 <template>
 	<div>
 
-		Hello
+		Hello this app was built by Sourav, to help users remember tasks!! ❤♥❤	
 
 	</div>
 </template>
@@ -10,13 +10,5 @@
 	export default{
 		name : 'testComp',
 		
-		data() {
-		
-		},
-		methods: {
-			
-		},
-		directives: {
-		}
 	}
 </script>
