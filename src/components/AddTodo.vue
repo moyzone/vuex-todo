@@ -19,17 +19,22 @@
 			addTodo(e) {
 				var title = e.target.value
 				var taskid=this.newTaskId
-				console.log(taskid)
+				// console.log(taskid)
 				this.$store.commit('ADD_TODO', { title, taskid } )
 				e.target.value = ''
 				alert("Todo was added successfully!!");
+				this.$router.push({ path: `/` }) 
 			}
 		},
 		computed: {
 			newTaskId() {
-				return (
-					this.$store.state.todos.reduce((max, curr) => Math.max(max, curr.taskId), 0) + 1
-				);
+				let max=0;
+				this.$store.state.todos.forEach(element => {					
+					let curr=element.taskid;
+					console.log(element.taskid)
+					max=Math.max(max, curr) +1;
+				});
+				return max;
 			}
 		}		
 	}

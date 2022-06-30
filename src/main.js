@@ -5,13 +5,15 @@ import VueRouter from 'vue-router'
 import testComp from './components/testComp.vue';
 import addTodoPage from './components/addTodoPage.vue';
 import homePage from './components/homePage.vue';
+import editTodoPage from './components/editTodoPage.vue';
 
 Vue.use(VueRouter);
 
 const Routes=[
   {path:'/about', component:testComp},
   {path:'/', component:homePage},
-  {path:'/addTodo', component:addTodoPage}
+  {path:'/addTodo', component:addTodoPage},
+  {path:'/edit/:id', name: 'edit', component:editTodoPage}
 ]
 
 const router=new VueRouter({

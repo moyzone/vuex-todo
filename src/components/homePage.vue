@@ -3,13 +3,13 @@
 		<h3>Things to do</h3>
 		<h5><span style="color:red; float:right;">*Double click on label to edit</span></h5>
 		<ul id="incomplete-tasks">
-			<todos v-for="todo in todos" :todo="todo" v-if="!todo.done"></todos>
+			<todos v-for="todo in yetToDoTasks" :key="todo.taskid" :todo="todo"></todos>
 		</ul>
 
 		<h3>Completed</h3>
 
 		<ul id="completed-tasks">
-			<completed v-for="todo in todos" :todo="todo" v-if="todo.done">></completed> //v-if should not be with v-for, key is mandatory, edit routing to different page, do state change based on id, after adding do redirect
+			<completed v-for="todo in completedTasks" :key="todo.taskid" :todo="todo"></completed> //v-if should not be with v-for(done), key is mandatory(done), edit routing to different page, do state change based on id, after adding do redirect(done)
 		</ul>
 	</div>
 </template>
@@ -27,7 +27,13 @@
 		computed: {
 			todos () {
 				return this.$store.state.todos
-			}
+			},
+      yetToDoTasks(){
+        return this.$store.state.todos.filter(todo=>todo.done===false)
+      },
+      completedTasks(){
+        return this.$store.state.todos.filter(todo=>todo.done===true)
+      }
 		}
 	}
 </script>

@@ -6,6 +6,7 @@
 			<label v-show="!editing" v-text="todo.title" v-on:dblclick="editing = true"></label>
 			<input type="text" id="edit-task" v-show="editing" v-bind:value="todo.title" v-on:keyup.enter="doneEdit">			
 			<button class="delete" v-on:click="deleteTodo({ todo })">Delete</button>
+			<button class="delete"><router-link :to="{ name: 'edit', params: { id: todo.taskid , obj: todo }}" > Edit</router-link></button>
 		</li>
 
 	</div>
@@ -35,15 +36,6 @@
 				const { todo } = this
 				this.$store.commit('Complete_Todo', { todo })
 			}
-		},
-		directives: {
-			// focus (el, { value }, { context }) {
-			// 	if (value) {
-			// 		context.$nextTick(() => {
-			// 			el.focus()
-			// 		})
-			// 	}
-			// }
 		}
 	}
 </script>
